@@ -8,3 +8,17 @@ button{
     width: 250px;
     border-radius: 5px;
 }
+
+.cadre {
+    color : white;
+    border: solid;
+    width: 10%;
+    height: 20%;
+    margin-left: auto;
+    margin-right: auto;
+    background: linear-gradient(to right, rgb(11, 190, 35), rgb(149, 247, 69));
+}
+
+P.white {
+    color : white;
+}
