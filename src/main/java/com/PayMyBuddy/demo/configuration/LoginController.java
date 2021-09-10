@@ -1,4 +1,4 @@
-package com.PayMyBuddy.demo.comfiguretion;
+package com.PayMyBuddy.demo.configuration;
 
 
 import org.springframework.web.bind.annotation.RequestMapping;
