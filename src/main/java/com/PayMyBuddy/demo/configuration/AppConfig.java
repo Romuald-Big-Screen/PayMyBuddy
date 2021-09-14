@@ -8,7 +8,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 public class AppConfig extends WebSecurityConfigurerAdapter {
 
-    @Bean
+  /*  @Bean
     public PasswordEncoder passwordEncoder() { return new BCryptPasswordEncoder(); }
 
     @Override
@@ -31,4 +31,6 @@ public class AppConfig extends WebSecurityConfigurerAdapter {
 
 
     }
+
+   */
 }

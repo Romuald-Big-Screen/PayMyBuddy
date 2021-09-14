@@ -29,7 +29,7 @@ public PasswordEncoder passwordEncoder() { return new BCryptPasswordEncoder(); }
                 .authenticated()
                 .and()
                 .formLogin()
-                .loginPage("/index.html")
+                .loginPage("/login.html")
                 .defaultSuccessUrl("/*",true)
                 .and()
                 .httpBasic()
