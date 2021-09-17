@@ -1,4 +1,4 @@
-package com.PayMyBuddy.demo.service.FORM;
+package com.PayMyBuddy.demo.service;
 
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetailsService;

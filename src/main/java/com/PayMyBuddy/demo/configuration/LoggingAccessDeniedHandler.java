@@ -1,7 +1,7 @@
 package com.PayMyBuddy.demo.configuration;
 
 
-import com.PayMyBuddy.demo.service.FORM.UserService;
+import com.PayMyBuddy.demo.service.UserService;
 import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

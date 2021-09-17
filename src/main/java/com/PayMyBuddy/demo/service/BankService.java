@@ -1,4 +1,4 @@
-package com.PayMyBuddy.demo.service.FORM;
+package com.PayMyBuddy.demo.service;
 
 import com.PayMyBuddy.demo.model.Bank;
 

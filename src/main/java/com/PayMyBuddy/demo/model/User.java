@@ -1,39 +1,71 @@
-package com.PayMyBuddy.demo.model;
 
+package com.payMyBuddy.model;
 
-import lombok.Data;
-import javax.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
+import java.util.List;
+import java.util.Objects;
 
-@Data
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
-@Table(name = "User")
+@Table(name = "users")
 public class User {
 
-    @Id 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "USER_SEQ")
-
-    private int id;
-    private String firstName;
-    private String lastName;
-
-    public User(int id, String firstName, String lastName) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-    }
-/*
-
-    @Column(unique = true)
+    @Column(nullable = false, unique = true)
     private String email;
-    private String password;*/
-   /* @ManyToMany
-    private List<connection> connections;
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private Account account; */
 
+    @Column(nullable = false)
+    private String password;
 
+    @Column(nullable = false, length = 45)
+    private String nickname;
 
+    @Column(nullable = false, precision = 18, scale = 2)
+    private double amount;
 
+    @JoinTable(name="connections", joinColumns = {
+            @JoinColumn(name = "owner_id", referencedColumnName = "id", nullable = false)
+    }, inverseJoinColumns = {
+            @JoinColumn(name = "target_id", referencedColumnName = "id", nullable = false)
+    })
+    @ManyToMany(fetch = FetchType.EAGER)
+    private List<User> listFriend;
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                ", pseudo='" + nickname + '\'' +
+                ", sold=" + amount +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return Double.compare(user.amount, amount) == 0 &&
+                id.equals(user.id) &&
+                email.equals(user.email) &&
+                password.equals(user.password) &&
+                nickname.equals(user.nickname);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, email, password, nickname, amount);
+    }
 }
